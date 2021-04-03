@@ -30,5 +30,20 @@ searchButton.on('click', function() {
         // Create local storage
         var localStore = localStorage.setItem(keys, response.name);
         keys = keys + 1;
+
+        // Todays forecast start
+        // Created a new div and class for the div, then appended to the id today.
+        var todayFore = $('#today').append('<div>').addClass('todayForecast');
+
+        // Created a p tag and appended to the div created.
+        var todayName = todayFore.append('<p>');
+        todayFore.append(todayName);
+
+        // Place the name input into the p tag created
+        todayName.append(response.name);
+
+        var todayTemp = todayName.append('<p>');
+        todayName.append(todayTemp);
+        todayTemp.append('<p>' + "Temperature is: " + response.main.temp + "℉" + "</p>");
     })
 })
