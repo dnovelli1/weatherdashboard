@@ -42,8 +42,19 @@ searchButton.on('click', function() {
         // Place the name input into the p tag created
         todayName.append(response.name);
 
+        // Creating today's temperature with a p tag and appending below the name
         var todayTemp = todayName.append('<p>');
+        // Creating a p tag inside of todays temp and filling with the responses temperature
         todayName.append(todayTemp);
-        todayTemp.append('<p>' + "Temperature is: " + response.main.temp + "℉" + "</p>");
+        todayTemp.append('<p>' + 'Temperature is: ' + response.main.temp + '℉' + '</p>');
+
+        todayTemp.append('<p>' + 'Humidity: ' + response.main.humidity + '%' + '</p>');
+
+        todayTemp.append('<p>' + 'Wind Speed: ' + response.wind.speed + '</p>');
+
+        // Create second api for UV? Then request and append the response to todayTemp
+
+
+        // Begin 5 day forecast
     })
 })
