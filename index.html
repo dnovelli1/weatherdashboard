@@ -15,24 +15,19 @@
                 <h1>Weather Dashboard</h1>
             </div>
         </div>
-        <aside class="container my-3">
+        <section class="container">
             <div class="row">
-                <div class="col-12 col-md-4 col-xl-3" id="search">
+                <div class="col-12 col-md-4 col-xl-3 bg-light">
                     <h3>Search for a city:</h3>
                     <div class="input-group mb-3">
                         <input type="text" class="form-control searchInput" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2">
                         <button class="btn btn-outline-secondary searchButton" type="button" id="button-addon">Search</button>
                     </div>
-                    <ul class="list-group" id="recentList">
+                    <ul class="list-group border text-center bg-white" id="recentList">
                       <!-- recent searches will go here -->
-                      <li>hello</li>
-                      <li>hello</li>
-                      <li>hello</li>
-                      <li>hello</li>
-                      <li>hello</li>
                     </ul>
                 </div>
-                <div class="col-12 col-md-8 col-xl-9">
+                <aside class="col-12 col-md-8 col-xl-9">
                     <!-- 2 seperate sections for today and five day forecast -->
                     <section class="container" id="today">
                         <!-- append today's forecast here -->
@@ -41,11 +36,12 @@
                     <section class="container row" id="fiveDay">
                         <!-- insert five day forecast here -->
                     </section>
-                </div>
+                </aside>
             </div>
-        </aside>
+        </section>
     </main>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
