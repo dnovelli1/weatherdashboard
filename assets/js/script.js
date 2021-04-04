@@ -22,7 +22,7 @@ searchButton.on('click', function() {
     }).then(function(response){
         console.log(urlToday);
         // Both console logs, log the correct url and the input name
-        console.log(response.name);
+        console.log(response);
         // Append the city name to the list of recent searches
         var cityName = $('.list-group').addClass('.list-group-item');
         // Create city names <li> and append to the city name var
@@ -33,14 +33,19 @@ searchButton.on('click', function() {
 
         // Todays forecast start
         // Created a new div and class for the div, then appended to the id today.
-        var todayFore = $('#today').append('<div>').addClass('todayForecast');
+        var todayFore = $('.todayCard').append('<div>').addClass('card-body');
+        todayFore.empty();
 
         // Created a p tag and appended to the div created.
         var todayName = todayFore.append('<p>');
         todayFore.append(todayName);
 
-        // Place the name input into the p tag created
-        todayName.append(response.name);
+        // Sets current date and time and appends to the user input
+        var timeSet = new Date(response.dt * 1000);
+        todayFore.append('<h4>' + response.name + " " + timeSet.toLocaleDateString("en-US") + '</h4>');
+
+        // Appends icon from response
+        todayFore.append(`<img src="https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png">`);
 
         // Creating today's temperature with a p tag and appending below the name
         var todayTemp = todayName.append('<p>');
@@ -56,5 +61,16 @@ searchButton.on('click', function() {
 
 
         // Begin 5 day forecast
+
+        $.ajax({
+            url: urlFive,
+            method: "GET"
+        }).then(function (response) {
+            var fiveDayFore = $('.fiveDayCard').addClass('card-body');
+            var eachDay = $('.eachDay').addClass('card-text');
+            eachDay.empty();
+
+
+        })
     })
 })
