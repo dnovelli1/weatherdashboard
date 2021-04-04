@@ -66,11 +66,21 @@ searchButton.on('click', function() {
             url: urlFive,
             method: "GET"
         }).then(function (response) {
+            // Set days arrray 
+            var dayCount = [0, 8, 16, 24, 32];
+
+            // Create new class inside of the five day forecast card
             var fiveDayFore = $('.fiveDayCard').addClass('card-body');
+
+            // Create text on each day's card, set to empty initially
             var eachDay = $('.eachDay').addClass('card-text');
             eachDay.empty();
 
-
+            // Begins function for each day, sets date.
+            dayCount.forEach(function (i){
+                var timeOfDay = new Date(response.list[i].dt * 1000);
+                console.log(timeOfDay);
+            })
         })
     })
 })
