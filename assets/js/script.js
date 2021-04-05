@@ -12,9 +12,9 @@ searchButton.on('click', function() {
     // Grabs search input value
     var searchInput = $('.searchInput').val();
     // URL for today's forecast and concatinating search input into text box and my api key
-    urlToday = "https://api.openweathermap.org/data/2.5/weather?q=" + searchInput + "&appid=" + apiKey + "&units=imperial";
+    var urlToday = "https://api.openweathermap.org/data/2.5/weather?q=" + searchInput + "&appid=" + apiKey + "&units=imperial";
     // URL for 5 day forecast and concatinating search input into text box and my api key
-    urlFive = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchInput + "&appid=" + apiKey + "&units=imperial";
+    var urlFive = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchInput + "&appid=" + apiKey + "&units=imperial";
     // WILL NEED SEPERATE URL FOR UV OF LOCATION
     $.ajax({
         url: urlToday,
@@ -42,10 +42,8 @@ searchButton.on('click', function() {
 
         // Sets current date and time and appends to the user input
         var timeSet = new Date(response.dt * 1000);
-        todayFore.append('<h4>' + response.name + " " + timeSet.toLocaleDateString("en-US") + '</h4>');
+        todayFore.append('<h4>' + response.name + " " + timeSet.toLocaleDateString("en-US") + `<img src="https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png">` + '</h4>');
 
-        // Appends icon from response
-        todayFore.append(`<img src="https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png">`);
 
         // Creating today's temperature with a p tag and appending below the name
         var todayTemp = todayName.append('<p>');
@@ -59,6 +57,7 @@ searchButton.on('click', function() {
 
         // Create second api for UV? Then request and append the response to todayTemp
 
+        var urlUV = ""
 
         // Begin 5 day forecast
 
@@ -80,7 +79,14 @@ searchButton.on('click', function() {
             dayCount.forEach(function (i){
                 var timeOfDay = new Date(response.list[i].dt * 1000);
                 console.log(timeOfDay);
+                timeOfDay = timeOfDay.toLocaleDateString("en-US");
+
+                // Appends a new container div and class to change color 
+                // Inserts date 
+                // Inserts image corresponding to the response from the city 
+                // Adds temperature and humidity reading corresponding from the response 
+                eachDay.append("<div class = eachDayColor>" + "<p>" + timeOfDay + "</p>" + `<img src="https://openweathermap.org/img/wn/${response.list[i].weather[0].icon}@2x.png">` + '<p>' + "Temp: " + response.list[i].main.temp + '℉' + '</p>' + '<p>' + 'Humidity: ' + response.list[i].main.humidity + '%' + '</p>' + '</div>');
             })
         })
     })
-})
+});
