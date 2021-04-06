@@ -1,4 +1,4 @@
-# Weather Dasshboard
+# Weather Dashboard
 
 ## In this assignment the ask was to build a weather dashboard where a user can enter in a city name and be provided with the forecast for that day and the 5 day forecast. In order to complete this assignment I ahd to start by acquiring an API from openweathermap.org. Then I needed to sort my way through the API to find the exact responses that I wanted to display for the user. I used Bootstrap to construct the page's layout and set cards for each section. The more exposure to the libraries is vyer good because I can find new things to format ideas and find my taste in customization. This assignment was again very challenging and time consuming, but worth the learning experience. I feel that with time, this will become second nature.
 
