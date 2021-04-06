@@ -32,20 +32,20 @@
 
 ## Site Preview
 
-![Site]()
+![Site](assets/images/websitesneakpeek.PNG)
 
 
 
 ## How it was made!
 ``HTML
 
-![Code-Snippet]()
+![Code-Snippet](assets/images/htmlsnippet.PNG)
 
 
 
 ``Javascript
 
-![Code-Snippet]()
+![Code-Snippet](assets/images/javascriptsnippet.PNG)
 
 
 
