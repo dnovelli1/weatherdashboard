@@ -60,3 +60,7 @@
 [LinkedIn](https://www.linkedin.com/in/david-jacob-novelli/)
 
 [GitHub](https://github.com/dnovelli1)
+
+## License
+
+Licensed under the [MIT License](LICENSE).
